@@ -8,22 +8,21 @@
     <h1 align="center">Welcome to the Gumball Machine</h1>
     <form name="Gumball" method="post" action="/GumballAction">
     
+  
+    <input type="hidden" name="state" id="state" value='<%=state%>' />
+    <input type="hidden" name="ts" id="ts" value='<%=ts%>'/>
+    <input type="hidden" name="hash" id="hash" value='<%=hash%>'/>
+    <input type="hidden" name="modelNumber" id="modelNumber" value='<%=modelNumber%>'/>
+    <input type="hidden" name="serialNumber" id="serialNumber" value='<%=serialNumber%>'/>
+    
     <p>
     <div align="center">
-    <textarea name="message" cols="50" rows="15">
-    Mighty Gumball, Inc.
-    Nodejs Standing Gumball
-    
-    Model Number :  <%=message[0]%>
-    Serial Number:  <%=message[1]%>
-    State :  <%=message[2]%>
+    <textarea name="message" cols="50" rows="15" readonly >
+    <%=message%>
    
     
     </textArea>
-    <input type="hidden" name="modelNumber" value=<%=message[0]%>/>
-     <input type="hidden" name="serialNumber" value=<%=message[1]%>/>
-    <input type="hidden" name="state" value=<%=message[2]%> />
-    <input type="hidden" name="count" value=<%=message[3]%>/>
+    
     
     
     </div>
