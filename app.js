@@ -7,10 +7,14 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  ,handlebars=require('express3-handlebars');
+  hbs=handlebars.create();
+  var app = express();
+ // app.engine('handlebars',hbs.engine);
+ // app.set('view engine','handlebars');
 
 
-var app = express();
 
 // all environments
 app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 3000);

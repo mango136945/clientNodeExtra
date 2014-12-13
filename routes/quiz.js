@@ -1,115 +1,131 @@
 var async = require("async") ;
 
-/*var f1 = function () { console.log ("one...") ; }
-var f2 = function () { console.log ("two...") ; }
-var f3 = function () { console.log ("three...") ; }
 
-async.series({
-    two: function(c){
-        setTimeout(function(){
-            f1() ;
-            c(null,1);
-        }, 9000);
-    },
-    one: function(c){
-        setTimeout(function(){
-            f2() ;
-            c(null,2);
-        }, 10000);
-    },
-    three: function(c){
-        setTimeout(function(){
-            f3() ;
-            c(null,3);
-        }, 3000);
-    }
+var f1=function(args){
+	
+	console.log("one  "+args);
+	
+}
+var f2=function(args){
+	
+	console.log("two  "+args);
+	
+}
+
+var f3=function(args){
+	
+	console.log("three  "+args);
+	
+}
+
+
+
+
+
+
+
+/*async.series([function(callback){
+            	  
+            	  setTimeout(function(){
+            		  
+            		  f1();
+            		 
+            	  },3000);
+            	  callback(null,1);
+            	  
 },
-function(err, results) {
-    console.log( results ) ;
-}
-);*/
-
-
-async.series([
+            	    
+            	    function(callback){
+           
+            	  setTimeout(function(){
+            		  
+            		  f2();
+            		 
+            	  },2000);
+            	  
+            	  callback(null,2);
+            	  //callback(null,2);
+            	  
+              },function(callback){
+            	  
+            	
+            	  setTimeout(function(){
+            		  
+            		  f3();
+            		 // callback(null,3);
+            	  },1000);
+            	  
+            	  
+            	  
+            	 callback(null,3)
+              }
+              ],function(err,results){
 	
-function(callback){
-		
-		setTimeout(function()
-				{
-			console.log("first callback");
-			
-				},
-				
-				9000);
-		callback(null,"one call");
-	},
-
-function(callback){
-	
-		setTimeout(function(){
-			console.log("second callback");
-			
-		},10000);
-		callback(null,"second call ");
-},
-function(callback){
-	
-	setTimeout(function(){console.log("third callback");},3000);
-	callback(null,"third call ");
-}
-],
-function(err,results){
-	
-	console.log(results);
-	
-}
-)
-
-
-
-/*async.waterfall([
-	
-	function (callback){
-		
-		console.log("first call");
-		callback(null,"first call ");
-	},
-function(arg,callback){
-	
-	console.log("second call after  "+arg);
-	callback(null,"second call ");
-},
-function(callback){
-	
-	console.log("third call ");
-	callback(null,"third call ");
-}
-	
-],function(err,results){
-	console.log(err);
 	console.log(results);
 })*/
 
 
-
-/*var async = require("async") ;
-
-async.waterfall([
-    function(c){
-        c( null, "a" ) ;        
-    },
-    function(arg, c){
-        console.log( arg ) ;
-        c( "error", "b", "c" ) ;
-    },
-    function(arg1, arg2, c){
-        console.log( arg1 ) ;
-        console.log( arg2 ) ;
-        c(null, "done") ;   
-    }
-],
-function(err, results) {
-    console.log( "err: " + err ) ;
-    console.log( "results: " + results ) ;
+/*async.waterfall([
+                 function(callback){
+                	 
+                	 setTimeout(function(){
+                		 f1("1");
+                	 })
+                	 callback(null,"1");
+                 },
+                 function(args,callback){
+                	 setTimeout(function(){
+                		 f2(args);
+                	 })
+                	 callback(null,"2","3");
+                 },
+                 function(args1,args2,callback){
+                	 
+                	 setTimeout(function(){
+                		 f3(args2);
+                	 })
+                	 console.log(args1);
+                	 callback(null,"done");
+                 }
+                 
+                 
+                 
+                 ],function(err,results){
+	console.log(results);
 }
-);*/
+
+)*/
+
+async.series({
+	one:function(callback){
+		
+		setTimeout(function(){
+			f1();
+			callback(null,1);
+		},1000)
+	},
+two:function(callback){
+		
+		setTimeout(function(){
+			f2();
+			callback(null,2);
+		},200)
+	},
+three:function(callback){
+		
+		setTimeout(function(){
+			f3();
+			callback(null,3);
+		},500)
+	}
+	},
+function(err,results){
+		
+	console.log(results);
+})
+
+
+
+
+
+
